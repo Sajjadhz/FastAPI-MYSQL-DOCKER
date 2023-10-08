@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    networks:
+      backend: null
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:  
+      - db    
+    networks:
+      backend: null
+    restart: always
+
+networks:
+  backend:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.16.17.0/24       

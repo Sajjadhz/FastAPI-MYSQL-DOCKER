@@ -1,0 +1,8 @@
+fastapi
+pydantic
+uvicorn
+sqlalchemy
+SQLAlchemy-Utils
+PyMySQL
+python-multipart
+cryptography
